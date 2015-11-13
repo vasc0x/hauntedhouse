@@ -1,0 +1,60 @@
+Class HauntedHouseRunner
+
+Static variable map holds the ASCII String with all the map data
+
+HauntedHouseRunner.main()
+Declare new house as the result of the setUpHouse method
+While processing an action on the house results in a true value, keep processing
+
+HauntedHouseRunner.setUpHouse()
+Declare all the HauntedHouseItems, passing them their names and results
+Declare all the HauntedHouseRooms, passing them their names and array of items they contain
+Set all the paths on the HauntedHouseRooms, passing arrays of rooms that each room can access
+Return a new HauntedHouse, passing the front door as the starting location and the map as a String
+
+
+
+Class HauntedHouseItem
+
+Declare protected variables name, result
+
+HauntedHouseItem.HauntedHouseItem(constructor)
+Takes 2 strings as arguments, stores them inside name and result
+
+
+
+Class HauntedHouseRoom
+
+Declare protected variables symbol (char), name (String), paths (array of HauntedHouseRooms), and items (array of HauntedHouseItems)
+
+HauntedHouseRoom.HauntedHouseRoom(Constructor)
+Takes in 3 arguments to store inside name, items, and symbol.
+
+HauntedHouseRoom.setPaths()
+Takes in a HauntedHouseRoom array as an argument, sets paths equal to that argument.
+
+
+
+Class HauntedHouse
+
+Declare private variables currentRoom, for which HauntedHouseRoom you are currently at, and map, a String containing the ASCII map.
+	
+HauntedHouse.HauntedHouse(Constructor)
+Takes in array of rooms and a map to set the variables accordingly.
+Also sets the font to a monospaced, 12-point font.
+
+HauntedHouse.processAction()
+Declare a String array of commands of size equal to the number of items + paths that the current room has
+Loop from 0 to number of paths - 1, filling the array with options that say "Go to " room name
+Loop from next value to number of paths + items - 1, filling the remaining array with options that say "Examine " item name
+Show an input dialog drawing the map using drawCurrentMap() and displaying the contents of the array as options.
+While the chosen option is null, repeat the previous step.
+Declare findItem and set it to the index of the chosen option in the array.
+If findItem is less than the number of paths, then the user must have chosen a path. set currentRoom to the chosen room and return true
+Otherwise, it must be an item, display a message showing the map using drawCurrentMap() and display the outcome according to the chosen item. Return false.
+
+HauntedHouse.drawCurrentMap()
+Declare String current equal to the map, but replace all symbols of the current room with a period.
+Set current equal to itself, after replacing all characters not used for drawing with a space.
+Return current
+
