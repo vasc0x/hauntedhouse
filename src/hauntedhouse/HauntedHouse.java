@@ -62,6 +62,8 @@ public class HauntedHouse {
         //Find the index of the item in the array of commands
         int findItem = Arrays.asList(commands).indexOf(result);
         
+        System.out.println(findItem);
+        
         //If command is a new location
         if (findItem < currentRoom.paths.length) {
             currentRoom = currentRoom.paths[findItem];
